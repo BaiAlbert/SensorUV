@@ -2,11 +2,11 @@
 #include <WiFi.h>
 #include <HTTPClient.h>
 
-// Replace with your network credentials
+// Credenciales para conectarse a la red del centro
 const char* ssid     = "CENTRO";
 const char* password = "";
 
-// REPLACE with your Domain name and URL path or IP address with path
+// Nombre del dominio y archivo a donde subir los datos
 const char* serverName = "https://ultravioletasuperestacion.000webhostapp.com/post-esp-data.php";
 
 // Keep this API Key value to be compatible with the PHP code provided in the project page. 
