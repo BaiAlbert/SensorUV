@@ -1,8 +1,11 @@
 # Propósito
 
 El propósito de este código es la recogida de datos de índice ultravioleta a través de una placa de desarrollo **ESP32** y el sensor **ML8511**, para posteriormente subir esos datos recogidos a una base de datos.
+
 Después de eso, el objetivo era mostrar los datos recogidos en una pagina web, que creamos gratuitamente con **[000webhost](https://000webhost.com/)**, y que tras un gran trabajo de HTML, hecho por mi compañero, conseguimos mostrar dichos datos de forma correcta y visualmente agradable.
+
 Dicha pagina creada por mi compañero con mi ayuda se puede visitar [aquí](https://ultravioletasuperestacion.000webhostapp.com/).  También yo personalmente cree una pagina para mostrar esos datos que se puede visitar [aquí](https://ultravioletasuperestacion.000webhostapp.com/alberto.php).
+
 El posterior objetivo de este proyecto es juntar varios sensores en una misma placa para crear una estación meteorológica que proporcione distintas mediciones de interés.
 
 
