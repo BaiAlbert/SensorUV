@@ -15,13 +15,15 @@ String apiKeyValue = "tPmAT5Ab3j7F9";
 String sensorName = "ML8511";
 String sensorLocation = "Home";
 
-int UVOUT = 32; //Output from the sensor
-int REF_3V3 = 4; //3.3V power on the ESP32 board
+int UVOUT = 32; // Salida de datos del sensor
+int REF_3V3 = 4; // Fuente de 3.3V del sensor
 
 void setup()
 {
+  // Iniciamos el serial
   Serial.begin(115200);
   
+  // Iniciamos los pines del sensor
   pinMode(UVOUT, INPUT);
   pinMode(REF_3V3, INPUT);
 
@@ -39,8 +41,7 @@ void setup()
   Serial.println(WiFi.macAddress());
 }
 
-//Takes an average of readings on a given pin
-//Returns the average
+// Devuelve la media de la salida del sensor
 int averageAnalogRead(int pinToRead)
 {
   byte numberOfReadings = 8;
@@ -52,18 +53,18 @@ int averageAnalogRead(int pinToRead)
  
   return(runningValue);
 }
- 
+
+// Limita el valor del dato que le introduzcamos
 float mapfloat(float x, float in_min, float in_max, float out_min, float out_max)
 {
   return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
 }
 
+// Devuelve el valor de indice UV, es decir, el valor final que vamos a usar
 int indicereturn()
 {
   int uvLevel = averageAnalogRead(UVOUT);
-  //Serial.println(uvLevel);
   int refLevel = averageAnalogRead(REF_3V3);
-  //Serial.println(refLevel);
   
   //Use the 3.3V power pin as a reference to get a very accurate output value from sensor
   float outputVoltage = 3.3 / refLevel * uvLevel;
