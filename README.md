@@ -16,7 +16,12 @@ El posterior objetivo de este proyecto es juntar varios sensores en una misma pl
 - Cables tanto macho/macho como macho/hembra.
 
 ## Fotos de dicho material
-
+![a](Fotos/1702665399559.jpg)
+*Placa de desarrollo ESP32 utilizada.*
+![a](Fotos/1702665399567.jpg)
+*Sensor ML8511 para la medición de datos sobre radiación ultravioleta.*
+![a](Fotos/1702665399563.jpg)
+*Sensor ML8511. Parte trasera.*
 # Problemas encontrados
 
 Durante la programación de la placa para recoger información sobre la radiación ultravioleta, mi compañero y yo nos encontramos con distintos problemas que fuimos solventando.
