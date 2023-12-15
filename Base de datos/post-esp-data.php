@@ -12,15 +12,14 @@
 
 $servername = "localhost";
 
-// REPLACE with your Database name
+// Nombre de la base de datos
 $dbname = "id21514049_esp32";
-// REPLACE with Database user
+// Nombre de usuario de la base datos
 $username = "id21514049_baialbert";
-// REPLACE with Database user password
+// Contraseña de la base de datos
 $password = "Al140906+";
 
-// Keep this API Key value to be compatible with the ESP32 code provided in the project page. 
-// If you change this value, the ESP32 sketch needs to match
+// El sketch que utilizemos en el ESP32 necesita tener la misma clave de API para funcionar
 $api_key_value = "tPmAT5Ab3j7F9";
 
 $api_key= $sensor = $location = $value1 = $value2 = $value3 = "";
@@ -34,9 +33,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $value2 = test_input($_POST["value2"]);
         $value3 = test_input($_POST["value3"]);
         
-        // Create connection
+        // Creamos la conexión
         $conn = new mysqli($servername, $username, $password, $dbname);
-        // Check connection
+        
+        // Y comprobamos si todo fue correctamente
         if ($conn->connect_error) {
             die("Connection failed: " . $conn->connect_error);
         } 

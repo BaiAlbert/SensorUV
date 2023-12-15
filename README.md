@@ -34,7 +34,7 @@ En esta imagen podemos ver un diagrama de conexión bastante claro:
 
 ### Interpretación de datos
 El siguiente problema fue la interpretación de los datos recogidos por el sensor. El ML8511 trabaja usando una especie de sensor sensible a la luz que funciona de la siguiente manera:
-> **+ Luz = + Voltaje = + Valor analogico**
+> **+ Luz = + Voltaje = + Valor analógico**
 
 El código proporcionado por [How2Electronics](https://how2electronics.com/uv-index-meter-esp32-uv-sensor-ml8511/) resulta proporcionando un valor de intensidad ultravioleta en **mW/cm²**. El problema es que dicho valor no tiene *(a simple vista)* ningún tipo de relación con otras unidades de medición.
 
@@ -56,14 +56,45 @@ Dicha tabla es la siguiente:
 | <1079 | 10   |
 | <1170 | >=11 |
 
-### Interferencias entre canales analógicos
+### Interferencias entre canales analógicos y modulo WiFi
 Otro de los problemas que encontramos fue a la hora de introducir la parte de mandar datos a la base de datos en el código de medición.
 
-Para poder usar solicitudes HTTP obviamente necesitamos una conexión a internet, por lo que usamos el módulo **WiFi** que incluye la placa ESP32 integrado, y teníamos conectado el pin de salida analogica del sensor al pin 15, que pertenece al canal analogico 2, **ADC2**, del ESP32 . Lo que no sabíamos es que cuando usamos cualquier tipo de funcionalidad WiFi, dicho canal analogico, ADC2, **quedaria inservible**. Dicho error nos daría problemas durante varios días, ya que estábamos desarrollando el código con el programa [Arduino IDE](https://www.arduino.cc/en/software), el cual no nos indicaba el error de interferencia entre el modulo WiFi y el canal analogico 2.
+Para poder usar solicitudes HTTP obviamente necesitamos una conexión a internet, por lo que usamos el módulo **WiFi** que incluye la placa ESP32 integrado, y teníamos conectado el pin de salida analógica del sensor al pin 15, que pertenece al canal analógico 2, **ADC2**, del ESP32 . Lo que no sabíamos es que cuando usamos cualquier tipo de funcionalidad WiFi, dicho canal analógico, ADC2, **quedaría inservible**. Dicho error nos daría problemas durante varios días, ya que estábamos desarrollando el código con el programa [Arduino IDE](https://www.arduino.cc/en/software), el cual no nos indicaba el error de interferencia entre el modulo WiFi y el canal analógico 2.
 
 Cuando hice pruebas en mi ordenador personal, use el entorno de desarrollo [Visual Studio Code](https://code.visualstudio.com/) con la extensión [PlatformIO](https://platformio.org/), y en ese momento fue cuando en el serial monitor pude ver un mensaje que decía que el canal ADC2 ya estaba siendo usado por el modulo WiFi.
 
 La solución ha dicho problema fue conectar la salida del sensor a un pin del canal **ADC1**, que va del pin 32 al pin 39.
+
+### Problemas entre HTML y PHP
+
+Mi compañero Gabriel, haciendo su pagina para mostrar los datos, la cual esta realmente elaborada, se encontró con un problema.
+
+El cual era que si navegaba por distintas paginas de la web, de alguna manera terminaba en una pagina HTML, la cual ni su archivo existía ya que todo era PHP.
+
+Este error se debía al poner:
+```php
+<!DOCTYPE html>
+<?php
+```
+ya que lo que hacia era mezclar el código HTML con el PHP.
+La mejor solución que encontramos a este problema fue comenzar los ficheros PHP y dentro del encabezado
+```php
+<?php
+```
+e introducir el código HTML mediante un *echo*
+```php
+<?php
+echo '
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estación Meteorológica</title>
+    <link rel="stylesheet" href="bootstrap.min.css">
+    ...
+</html>';
+?>
+```
 
 # Créditos
 
