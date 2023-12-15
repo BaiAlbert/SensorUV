@@ -52,7 +52,10 @@ int averageAnalogRead(int pinToRead)
   unsigned int runningValue = 0; 
  
   for(int x = 0 ; x < numberOfReadings ; x++)
+  {
     runningValue += analogRead(pinToRead);
+  }
+  
   runningValue /= numberOfReadings;
  
   return(runningValue);
@@ -99,7 +102,7 @@ int indicereturn()
 int oneminute = 60000;
 void loop()
 {
-  // Solo ejecutaremos el codigo si estamos conectados al WiFi
+  // Solo ejecutaremos el código si estamos conectados al WiFi
   if (WiFi.status() == WL_CONNECTED)
   {
     HTTPClient http;
@@ -121,7 +124,7 @@ void loop()
     // Mandamos el POST que hemos creado
     int httpResponseCode = http.POST(httpRequestData);
 
-    // Pasamos el codigo http de respuesta al serial
+    // Pasamos el código HTTP de respuesta al serial
     if (httpResponseCode > 0) {
       Serial.print("HTTP Response code: ");
       Serial.println(httpResponseCode);
