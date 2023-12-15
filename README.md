@@ -16,11 +16,11 @@ El posterior objetivo de este proyecto es juntar varios sensores en una misma pl
 - Cables tanto macho/macho como macho/hembra.
 
 ## Fotos de dicho material
-![a](Fotos/1702665399559.jpg)
+![Placa ESP32](Fotos/1702665399559.jpg)
 *Placa de desarrollo ESP32 utilizada.*
-![a](Fotos/1702665399567.jpg)
+![Sensor ML8511](Fotos/1702665399567.jpg)
 *Sensor ML8511 para la medición de datos sobre radiación ultravioleta.*
-![a](Fotos/1702665399563.jpg)
+![Sensor ML8511 (parte trasera)](Fotos/1702665399563.jpg)
 *Sensor ML8511. Parte trasera.*
 # Problemas encontrados
 
@@ -68,5 +68,5 @@ La solución ha dicho problema fue conectar la salida del sensor a un pin del ca
 # Créditos
 
 - **[Gabriel Abellán](https://github.com/nullmistake)**. Siendo el principal recopilador de información sobre la radiación ultravioleta, ayuda durante la programación del sensor, y un gran trabajo de HTML al crear la pagina para mostrar los datos recogidos por el sensor.
-- **[How2Electronics](https://how2electronics.com/uv-index-meter-esp32-uv-sensor-ml8511/)**. Por el codigo proporcionado para el uso del sensor ML8511 en con la placa ESP32.
-- **[Medium](https://chintyaw.medium.com/esp32-project-10-insert-data-into-mysql-database-using-php-and-arduino-ide-84601ed91dc)**. Por el codigo proporcionado para la creación de la base de datos para su posterior uso con la placa ESP32.
+- **[How2Electronics](https://how2electronics.com/uv-index-meter-esp32-uv-sensor-ml8511/)**. Por el código proporcionado para el uso del sensor ML8511 en con la placa ESP32.
+- **[Medium](https://chintyaw.medium.com/esp32-project-10-insert-data-into-mysql-database-using-php-and-arduino-ide-84601ed91dc)**. Por el código proporcionado para la creación de la base de datos y su posterior uso con la placa ESP32.
